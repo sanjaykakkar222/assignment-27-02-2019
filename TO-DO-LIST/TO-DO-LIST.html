@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+ 
+  </style>
+</head>
+
+<body onload="dynamicload()"> 
+
+
+
+<script>
+function dynamicload(){
+    var div = document.createElement('div');
+    var input1 =document.createElement('input');
+        input1.setAttribute("type", "date");
+        input1.setAttribute("id", "dateid");
+    var label1 = document.createElement('label');
+    var text1 =document.createTextNode("Date : ");
+    var input2 =document.createElement('input');
+        input2.setAttribute("type", "text");
+        input2.setAttribute("id", "textid");
+    var label2 = document.createElement('label');
+    var text2 =document.createTextNode("Description :");
+    label1.appendChild(text1);
+    div.appendChild(label1);
+    div.appendChild(input1);
+    label2.appendChild(text2)
+    div.appendChild(label2);
+    div.appendChild(input2);
+    document.body.appendChild(div);
+
+
+
+
+
+    var div1 = document.createElement('div');
+    var button =document.createElement('button');
+    button.setAttribute("id", "buttonid")
+    var buttontext =document.createTextNode(" + ");
+    button.appendChild(buttontext)
+    div1.appendChild(button)
+    document.body.appendChild(div1);
+
+
+    var table = document.createElement('table');
+        table.border = 3;
+
+    document.getElementById("buttonid").style.margin = "40px 22px 20px 100px";
+    
+
+    document.getElementById("buttonid").addEventListener("click", toDolist);
+    
+  
+    var count =0;
+    var obj =[];
+    function toDolist(){
+      
+        var date =document.getElementById("dateid").value;
+        var text =document.getElementById("textid").value;
+        obj[count] = { "date": date , "text":text};
+
+
+        var rowid = count;
+
+        var tr = document.createElement('tr');
+            
+        var td1 =document.createElement('td');
+        var td2 =document.createElement('td');
+        var td3 =document.createElement('td');
+    
+        var tabletext =document.createTextNode(obj[count].text);
+        var tabledate =document.createTextNode("  "+obj[count].date);
+        var tabledelete =document.createTextNode("  DELETEROWS" );
+
+
+
+
+
+
+            td3.setAttribute("id",rowid)
+
+
+        td1.appendChild(tabledate);
+        td2.appendChild(tabletext);
+        td3.appendChild(tabledelete);
+
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        
+        table.appendChild(tr);
+        document.body.appendChild(table);
+        document.getElementById(rowid).addEventListener("click", function(){
+            
+            let temp =rowid;
+       
+          table.deleteRow(temp);
+       
+});
+            count++;
+
+
+
+         
+      
+
+
+         
+         }
+         
+
+     
+    }
+  
+  
+    
+
+
+   
+    
+
+ 
+
+   
+
+
+
+
+
+
+
+
+ 
+
+</script>
+
+</body>>
+
+
+</html>
+	
